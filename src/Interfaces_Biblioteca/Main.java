@@ -14,7 +14,7 @@ public class Main {
             System.out.println(usuario[i].getNombre());
         }
         //Se toma la posición ingresada por el usuario dentro del arreglo, este es el usuario con el cual se trabajará
-        int idUsuario = scanner.nextInt();
+       int idUsuario = scanner.nextInt();
         //Se define el arreglo de libros
 
         Libro[] libreria= new Libro[3];

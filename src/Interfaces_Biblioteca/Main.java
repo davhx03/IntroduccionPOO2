@@ -9,12 +9,13 @@ public class Main {
         usuario[1]= new Usuario("Mario");
         //Se le pide al usuario identificarse
         System.out.println("Ingrese su ID de Usuario: ");
-        for(int i=0; i<= usuario.length;i++){
+        for(int i=0; i<usuario.length;i++){
             int id = i+1;
-            System.out.println(usuario[i].getNombre());
+            System.out.println(id+". "+usuario[i].getNombre());
         }
         //Se toma la posición ingresada por el usuario dentro del arreglo, este es el usuario con el cual se trabajará
-        int idUsuario = scanner.nextInt();
+       int idUsuario = scanner.nextInt();
+        idUsuario=idUsuario-1;
         //Se define el arreglo de libros
 
         Libro[] libreria= new Libro[3];
@@ -22,26 +23,32 @@ public class Main {
         libreria[1] = new Libro("El amor en tiempos de cólera", "Gabriel Garcia Marquez","cde432");
         libreria[2] = new Libro("El secreto", "Rhonda Byrne","xyz890");
 
-        System.out.println("Ingrese el libro de su interés: ");
+        System.out.println("Hola "+usuario[idUsuario].getNombre()+"!\nIngrese el libro de su interés: ");
         //Se le pide al usuario que ingrese el id del libro en el que está interesado, el usuario ingresará un número por consola
         for(int i=0; i<= 2 ;i++){
             int id = i+1;
             System.out.println(id +". "+ libreria[i].getTitulo());
         }
         int idLibro = scanner.nextInt();
-        System.out.println("Usted ha elegido el libro"+libreria[idLibro].getTitulo());
+        idLibro=idLibro-1;
+        System.out.println("Usted ha elegido el libro "+libreria[idLibro].getTitulo());
         System.out.println("Ingrese la opción que desea ejecutar: \n1. Solicitar prestamo del libro\n2.Reservar el prestamo del libro\n3.Realizar la devolución del libro");
         int opcion = scanner.nextInt();
-        switch (opcion){
-            case 1: libreria[idLibro].prestar(usuario[idUsuario]);
-                System.out.println("El nuevo estado del libro es:"+libreria[idLibro]+"\n");
-                break;
-            case 2: libreria[idLibro].reservar();
-                System.out.println("El nuevo estado del libro es:"+libreria[idLibro]+"\n");
-                break;
-            case 3: libreria[idLibro].devolver();
-                System.out.println("El nuevo estado del libro es:"+libreria[idLibro]+"\n");
-                break;
+        boolean imprimirMenu = true;
+
+            switch (opcion) {
+                case 1:
+                    libreria[idLibro].prestar(usuario[idUsuario]);
+                    System.out.println("El nuevo estado del libro es:" + libreria[idLibro] + "\n");
+                    break;
+                case 2:
+                    libreria[idLibro].reservar();
+                    System.out.println("El nuevo estado del libro es:" + libreria[idLibro] + "\n");
+                    break;
+                case 3:
+                    libreria[idLibro].devolver();
+                    System.out.println("El nuevo estado del libro es:" + libreria[idLibro] + "\n");
+                    break;
         }
     }
 }
